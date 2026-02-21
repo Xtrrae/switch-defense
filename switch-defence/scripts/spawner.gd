@@ -1,7 +1,9 @@
 extends Node
+@onready var points: Node2D = $"../CanvasLayer/Points"
+
 
 var wait_time = 4;
-const min_wait_time = 1;
+const min_wait_time = 1
 var timer: Timer
 var monster_scene: Resource
 const max_speed = 0.3;
@@ -21,18 +23,18 @@ func _process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	# spawn monster
 	var monster: CharacterBody2D = monster_scene.instantiate()
-	var current_level = $"../Points".level
+	
 	
 	if randi_range(0, 1) == 0:
 		# speed focused
 		monster.type = "speed_focused"
-		monster.speed = min(.08 * current_level, max_speed)
-		monster.attack = min(current_level, max_attack)
+		monster.speed = min(.08 * points.level, max_speed)
+		monster.attack = min(points.level, max_attack)
 	else:
 		# attack focused
 		monster.type = "attack_focused"
-		monster.speed = min(.04 * current_level, max_speed)
-		monster.attack = min(4 * current_level, max_attack)
+		monster.speed = min(.04 * points.level, max_speed)
+		monster.attack = min(4 * points.level, max_attack)
 	
 	
 	match randi_range(0, 3):
@@ -48,7 +50,7 @@ func _on_timer_timeout() -> void:
 	monster.starting_position = monster.position
 	
 	# set new wait time by level
-	wait_time = max(min_wait_time, wait_time - (current_level / 4))
+	wait_time = max(min_wait_time, wait_time - (points.level / 4))
 	print("new wt: ", wait_time)
 	timer.wait_time = wait_time
 	monster.name = "Monster" + str(randi())
@@ -61,7 +63,6 @@ func _on_input_combination_changed(current_combination: Variant) -> void:
 			continue
 		if child.destruction_combination == current_combination:
 			# add points (based on the current level)
-			var pts = $"../Points"
-			pts.add_points(pts.level * 3)
+			points.add_points(points.level * 3)
 			remove_child(child)
 			child.destroy()

@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 
 PlayerStats="*uid://dbsecmw7mieew"
 
+[display]
+
+window/size/window_width_override=2560
+window/size/window_height_override=1440
+window/stretch/mode="viewport"
+
 [input]
 
 switch_1={

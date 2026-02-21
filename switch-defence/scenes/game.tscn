@@ -4,6 +4,20 @@
 [ext_resource type="Script" uid="uid://qbk2w6ii4lvg" path="res://scripts/spawner.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://ckut456q8gpwj" path="res://scenes/points.tscn" id="2_yqjtg"]
 
+[sub_resource type="Gradient" id="Gradient_lnu2h"]
+colors = PackedColorArray(1, 0.5294118, 0.1254902, 1, 0.7137255, 0.29803923, 0.09019608, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lbhrr"]
+noise_type = 4
+frequency = 0.1114
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iywne"]
+noise = SubResource("FastNoiseLite_lbhrr")
+color_ramp = SubResource("Gradient_lnu2h")
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lnu2h"]
+polygon = PackedVector2Array(-120, -60, 121, -60, 121, 61, -120, 62)
+
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lnu2h"]
 vertices = PackedVector2Array(1722.2188, -674.59375, 1768.7188, 1259.9766, -1049.4375, 994.9375, -940.6094, -841.3906)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
@@ -11,9 +25,18 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-950, -852, 1732, -684,
 
 [node name="Node2D" type="Node2D" unique_id=1330494218]
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2139711286]
+position = Vector2(465.50006, 239.99994)
+scale = Vector2(39.296875, 29.531252)
+texture = SubResource("NoiseTexture2D_iywne")
+
 [node name="Input" parent="." unique_id=331839216 instance=ExtResource("1_lnu2h")]
 texture_filter = 1
 position = Vector2(576, 324)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Input" unique_id=673537078]
+self_modulate = Color(1, 1, 1, 0)
+occluder = SubResource("OccluderPolygon2D_lnu2h")
 
 [node name="Spawner" type="Node2D" parent="." unique_id=1149451670]
 script = ExtResource("1_uwrxv")
@@ -21,10 +44,19 @@ script = ExtResource("1_uwrxv")
 [node name="Timer" type="Timer" parent="Spawner" unique_id=604119849]
 autostart = true
 
-[node name="Points" parent="." unique_id=2083446943 instance=ExtResource("2_yqjtg")]
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=140841292]
+position = Vector2(-4, -19)
 navigation_polygon = SubResource("NavigationPolygon_lnu2h")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1058513653]
+rotation = 0.6970903
+energy = 0.4
+shadow_enabled = true
+shadow_color = Color(1, 0, 0.10980392, 0.4862745)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=911453835]
+
+[node name="Points" parent="CanvasLayer" unique_id=2083446943 instance=ExtResource("2_yqjtg")]
 
 [connection signal="combination_changed" from="Input" to="Spawner" method="_on_input_combination_changed"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
