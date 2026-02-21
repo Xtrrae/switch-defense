@@ -1,15 +1,15 @@
 extends Node
 
-var wait_time = 3;
-var min_wait_time = 0.3;
+var wait_time = 4;
+const min_wait_time = 1;
 var timer: Timer
 var monster_scene: Resource
+const max_speed = 0.3;
+const max_attack = 25;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer = $Timer
-	timer.one_shot = false
-	timer.wait_time = wait_time
 	monster_scene = load("res://scenes/monster.tscn")
 
 
@@ -21,6 +21,19 @@ func _process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	# spawn monster
 	var monster: StaticBody2D = monster_scene.instantiate()
+	var current_level = $"../Points".level
+	
+	if randi_range(0, 1) == 0:
+		# speed focused
+		monster.type = "speed_focused"
+		monster.speed = min(.06 * current_level, max_speed)
+		monster.attack = min(current_level, max_attack)
+	else:
+		# attack focused
+		monster.type = "attack_focused"
+		monster.speed = min(.01 * current_level, max_speed)
+		monster.attack = min(4 * current_level, max_attack)
+	
 	
 	match randi_range(0, 3):
 		0: # top, x: [-100, 1252], y: -100	
@@ -33,3 +46,7 @@ func _on_timer_timeout() -> void:
 			monster.position = Vector2(randi_range(-100, 1252), 748)
 	
 	# set new wait time by level
+	wait_time = max(min_wait_time, wait_time - (current_level / 4))
+	print("new wt: ", wait_time)
+	timer.wait_time = wait_time
+	$"../".add_child(monster)

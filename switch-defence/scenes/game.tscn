@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://p5k3gs34bif6"]
+
+[ext_resource type="Script" uid="uid://qbk2w6ii4lvg" path="res://scripts/spawner.gd" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://ckut456q8gpwj" path="res://scenes/points.tscn" id="2_yqjtg"]
+
+[node name="Node2D" type="Node2D" unique_id=1330494218]
+
+[node name="Spawner" type="Node2D" parent="." unique_id=1149451670]
+script = ExtResource("1_uwrxv")
+
+[node name="Timer" type="Timer" parent="Spawner" unique_id=604119849]
+autostart = true
+
+[node name="Points" parent="." unique_id=2083446943 instance=ExtResource("2_yqjtg")]
+
+[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
