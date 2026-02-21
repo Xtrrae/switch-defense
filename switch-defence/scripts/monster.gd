@@ -11,7 +11,6 @@ var target
 var in_rebound = false;
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# choose a random combination and update the label
@@ -45,9 +44,9 @@ func _physics_process(delta):
 	var effective_speed = speed
 	if in_rebound:
 		effective_speed *= 6.7
-	
+
 	velocity = (next_path_position - current_agent_position) * effective_speed
-	
+
 	if navigation_agent.is_target_reached() and in_rebound:
 		in_rebound = false
 		print("rebound done, target: ", target)

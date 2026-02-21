@@ -1,10 +1,10 @@
 extends StaticBody2D
 
 @onready var switches: TileMapLayer = $Switches
-@onready var switch_1: AnimatedSprite2D = $switch1
-@onready var switch_2: AnimatedSprite2D = $switch2
-@onready var switch_3: AnimatedSprite2D = $switch3
-@onready var switch_4: AnimatedSprite2D = $switch4
+@onready var switch_1: AnimatedSprite2D = $Switch1
+@onready var switch_2: AnimatedSprite2D = $Switch2
+@onready var switch_3: AnimatedSprite2D = $Switch3
+@onready var switch_4: AnimatedSprite2D = $Switch4
 
 signal combination_changed(current_combination)
 
@@ -45,31 +45,31 @@ func _input(event: InputEvent) -> void:
 		combi_change_pos(3, false)
 		
 	if current_combination[0] and animate[0]:
-		switch_1.play("move_down")
+		switch_1.play("move_up")
 		animate[0] = false
 	elif !current_combination[0] and animate[0]:
-		switch_1.play("move_up")
+		switch_1.play("move_down")
 		animate[0] = false
 
 	if current_combination[1] and animate[1]:
-		switch_2.play("move_down")
+		switch_2.play("move_up")
 		animate[1] = false
 	elif !current_combination[1] and animate[1]:
-		switch_2.play("move_up")
+		switch_2.play("move_down")
 		animate[1] = false
 
 	if current_combination[2] and animate[2]:
-		switch_3.play("move_down")
+		switch_3.play("move_up")
 		animate[2] = false
 	elif !current_combination[2] and animate[2]:
-		switch_3.play("move_up")
+		switch_3.play("move_down")
 		animate[2] = false
 
 	if current_combination[3] and animate[3]:
-		switch_4.play("move_down")
+		switch_4.play("move_up")
 		animate[3] = false
 	elif !current_combination[3] and animate[3]:
-		switch_4.play("move_up")
+		switch_4.play("move_down")
 		animate[3] = false
 		
 func combi_change_pos(index: int, new_state: bool) -> void:

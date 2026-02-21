@@ -5,11 +5,12 @@ var level = 1;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	pass
 	# 1.9x^2 + 12 = points
 	# (point - 12)/1.9 = x^2
-	level = sqrt((points - 12)/1.9)
-	$PointsLabel.text = "%.0d" % points
-	$LevelLabel.text = "%d" % level
+	#level = sqrt((points - 12)/1.9)
+	#$PointsLabel.text = "%.0d" % points
+	#$LevelLabel.text = "%d" % level
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
