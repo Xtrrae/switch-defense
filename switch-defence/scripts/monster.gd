@@ -12,6 +12,8 @@ func _ready() -> void:
 	# choose a random combination and update the label
 	for i in range(4):
 		destruction_combination[i] = randi_range(0, 1) == 0
+	if destruction_combination == [0, 0, 0, 0]: # 0,0,0,0 shouldn't be an option
+		destruction_combination[randi_range(0, 3)] = 1 # if it's 0,0,0,0 -> set a random digit to 1
 	var dc_label: Label = get_node("DefeatCombinationLabel")
 	dc_label.text = "%d%d%d%d" % destruction_combination.map(func (x): if x: return 1 else: return 0)
 
