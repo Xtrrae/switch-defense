@@ -1,8 +1,11 @@
 extends StaticBody2D
 
 var destruction_combination = [0, 0, 0, 0];
+var type = ""; # attack_focused | speed_focused
 var speed = 0;
 var attack = 0;
+
+const target = Vector2(576, 324);
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,4 +19,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	var currentX = position.x
+	var currentY = position.y
+	position = position.lerp(target, speed * delta)

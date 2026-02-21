@@ -10,18 +10,20 @@ size = Vector2(185, 185)
 script = ExtResource("1_1cbnp")
 
 [node name="MonsterCollision" type="CollisionShape2D" parent="." unique_id=2043104695]
-position = Vector2(92, 136)
+position = Vector2(-1, -4)
 shape = SubResource("RectangleShape2D_c5q2p")
 
 [node name="MonsterSprite" type="Sprite2D" parent="." unique_id=1787697316]
 texture_filter = 1
-position = Vector2(92, 136)
+position = Vector2(-1, -4)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_c47ug")
 
 [node name="DefeatCombinationLabel" type="Label" parent="." unique_id=272376753]
-offset_right = 184.0
-offset_bottom = 42.0
+offset_left = -93.0
+offset_top = -139.0
+offset_right = 91.0
+offset_bottom = -97.0
 theme_override_font_sizes/font_size = 30
 horizontal_alignment = 1
 vertical_alignment = 1
