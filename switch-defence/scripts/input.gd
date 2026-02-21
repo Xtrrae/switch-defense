@@ -46,3 +46,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	print("enemy entered")
 	if body.name.contains("Monster"):
 		body.modulate = Color("red")
+		body.rebound()
