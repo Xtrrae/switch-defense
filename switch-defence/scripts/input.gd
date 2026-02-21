@@ -43,8 +43,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_released("switch_4"):
 		animate[3] = true
 		combi_change_pos(3, false)
-
-	# --- ANIMATIONS (unchanged logic) ---
+		
 	if current_combination[0] and animate[0]:
 		switch_1.play("move_down")
 		animate[0] = false
