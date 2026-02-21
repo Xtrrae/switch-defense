@@ -14,3 +14,7 @@ func _process(delta: float) -> void:
 	if points >= goalForNextLevel:
 		level += 1;
 		print("leveled up to: ", level, ", points: ", points)
+
+func add_points(d) -> void:
+	points += d
+	$PointsLabel.text = "%.0d" % points

@@ -49,4 +49,13 @@ func _on_timer_timeout() -> void:
 	wait_time = max(min_wait_time, wait_time - (current_level / 4))
 	print("new wt: ", wait_time)
 	timer.wait_time = wait_time
-	$"../".add_child(monster)
+	add_child(monster)
+
+
+func _on_input_combination_changed(current_combination: Variant) -> void:
+	for child in get_children():
+		if child.name == "Timer":
+			continue
+		if child.destruction_combination == current_combination:
+			print("monster destroyed")
+			child.destroy()
