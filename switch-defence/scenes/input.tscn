@@ -1,18 +1,84 @@
-[gd_scene format=3 uid="uid://2gcdsvi1m8id"]
+[gd_scene format=4 uid="uid://2gcdsvi1m8id"]
 
 [ext_resource type="Script" uid="uid://b5ffm570hy0fq" path="res://scripts/input.gd" id="1_jt1lk"]
+[ext_resource type="Texture2D" uid="uid://c6q0kvvc37g63" path="res://assets/switch_sprite_sheet.png" id="2_6gs7a"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ovd13"]
+texture = ExtResource("2_6gs7a")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_8p10g"]
+sources/0 = SubResource("TileSetAtlasSource_ovd13")
 
 [node name="Input" type="Node2D" unique_id=331839216]
 script = ExtResource("1_jt1lk")
 
-[node name="CurrentCombiLabel" type="Label" parent="." unique_id=744507776]
-visible = false
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 39
-text = "0000"
+[node name="Switches" type="TileMapLayer" parent="." unique_id=265615923]
+position = Vector2(0, -159.99997)
+scale = Vector2(2.5, 2.5)
+tile_map_data = PackedByteArray("AAABAAQAAAABAAEAAAACAAQAAAABAAEAAAADAAQAAAABAAEAAAAEAAQAAAABAAEAAAAFAAQAAAACAAEAAAAAAAQAAAAAAAEAAAAAAAUAAAAAAAIAAAAAAAYAAAAAAAMAAAAFAAUAAAACAAIAAAAFAAYAAAACAAMAAAABAAYAAAABAAMAAAACAAYAAAABAAMAAAADAAYAAAABAAMAAAAEAAYAAAABAAMAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_8p10g")
 
-[node name="StartingDelay" type="Timer" parent="." unique_id=1645265519]
-wait_time = 0.2
-one_shot = true
-autostart = true
+[node name="SwitchOn1" type="TileMapLayer" parent="Switches" unique_id=379701590]
+visible = false
+scale = Vector2(0.99999994, 0.99999994)
+tile_map_data = PackedByteArray("AAABAAUAAAABAAAAAAA=")
+tile_set = SubResource("TileSet_8p10g")
+
+[node name="SwitchOn2" type="TileMapLayer" parent="Switches" unique_id=1753357083]
+visible = false
+scale = Vector2(0.99999994, 0.99999994)
+tile_map_data = PackedByteArray("AAACAAUAAAABAAAAAAA=")
+tile_set = SubResource("TileSet_8p10g")
+
+[node name="SwitchOn3" type="TileMapLayer" parent="Switches" unique_id=1355827157]
+visible = false
+scale = Vector2(0.99999994, 0.99999994)
+tile_map_data = PackedByteArray("AAADAAUAAAABAAAAAAA=")
+tile_set = SubResource("TileSet_8p10g")
+
+[node name="SwitchOn4" type="TileMapLayer" parent="Switches" unique_id=1653859990]
+visible = false
+scale = Vector2(0.99999994, 0.99999994)
+tile_map_data = PackedByteArray("AAAEAAUAAAABAAAAAAA=")
+tile_set = SubResource("TileSet_8p10g")
+
+[node name="SwitchOff1" type="TileMapLayer" parent="Switches" unique_id=2094854737]
+scale = Vector2(0.99999994, 0.99999994)
+tile_map_data = PackedByteArray("AAABAAUAAAABAAIAAAA=")
+tile_set = SubResource("TileSet_8p10g")
+
+[node name="SwitchOff2" type="TileMapLayer" parent="Switches" unique_id=506542601]
+scale = Vector2(0.99999994, 0.99999994)
+tile_map_data = PackedByteArray("AAACAAUAAAABAAIAAAA=")
+tile_set = SubResource("TileSet_8p10g")
+
+[node name="SwitchOff3" type="TileMapLayer" parent="Switches" unique_id=918263106]
+scale = Vector2(0.99999994, 0.99999994)
+tile_map_data = PackedByteArray("AAADAAUAAAABAAIAAAA=")
+tile_set = SubResource("TileSet_8p10g")
+
+[node name="SwitchOff4" type="TileMapLayer" parent="Switches" unique_id=571901623]
+scale = Vector2(0.99999994, 0.99999994)
+tile_map_data = PackedByteArray("AAAEAAUAAAABAAIAAAA=")
+tile_set = SubResource("TileSet_8p10g")
+
+[node name="CurrentCombiLabel" type="Label" parent="." unique_id=744507776]
+offset_left = 83.0
+offset_top = 79.0
+offset_right = 149.0
+offset_bottom = 119.0
+theme_override_colors/font_color = Color(0.28778407, 0.28778407, 0.28778407, 1)
+theme_override_font_sizes/font_size = 29
+text = "0000"
