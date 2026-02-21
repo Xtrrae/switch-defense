@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://2gcdsvi1m8id"]
+
+[ext_resource type="Script" uid="uid://b5ffm570hy0fq" path="res://scripts/input.gd" id="1_jt1lk"]
+
+[node name="Input" type="Node2D" unique_id=331839216]
+script = ExtResource("1_jt1lk")
+
+[node name="CurrentCombiLabel" type="Label" parent="." unique_id=744507776]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 39
+text = "0000"
+
+[node name="StartingDelay" type="Timer" parent="." unique_id=1645265519]
+wait_time = 0.2
+one_shot = true
+autostart = true
