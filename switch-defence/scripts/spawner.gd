@@ -49,6 +49,7 @@ func _on_timer_timeout() -> void:
 	wait_time = max(min_wait_time, wait_time - (current_level / 4))
 	print("new wt: ", wait_time)
 	timer.wait_time = wait_time
+	monster.name = "Monster" + str(randi())
 	add_child(monster)
 
 
