@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b5ffm570hy0fq" path="res://scripts/input.gd" id="1_jt1lk"]
 [ext_resource type="Texture2D" uid="uid://c6q0kvvc37g63" path="res://assets/switch_sprite_sheet.png" id="2_6gs7a"]
+[ext_resource type="Texture2D" uid="uid://nh88wtp2apik" path="res://assets/Light_switch.png" id="3_8p10g"]
 [ext_resource type="FontFile" uid="uid://jtshwua3f1gx" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="3_ovd13"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8p10g"]
@@ -25,8 +26,39 @@ texture = ExtResource("2_6gs7a")
 1:3/0 = 0
 2:3/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2f4ux"]
+texture = ExtResource("3_8p10g")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+2:0/0 = 0
+7:0/0 = 0
+3:0/animation_columns = 4
+3:0/animation_speed = 10.0
+3:0/animation_frame_0/duration = 1.0
+3:0/animation_frame_1/duration = 1.0
+3:0/animation_frame_2/duration = 1.0
+3:0/animation_frame_3/duration = 1.0
+3:0/0 = 0
+3:1/animation_columns = 4
+3:1/animation_speed = 10.0
+3:1/animation_frame_0/duration = 1.0
+3:1/animation_frame_1/duration = 1.0
+3:1/animation_frame_2/duration = 1.0
+3:1/animation_frame_3/duration = 1.0
+3:1/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_8p10g"]
 sources/0 = SubResource("TileSetAtlasSource_ovd13")
+sources/1 = SubResource("TileSetAtlasSource_2f4ux")
 
 [node name="Input" type="StaticBody2D" unique_id=714907249]
 script = ExtResource("1_jt1lk")
@@ -44,53 +76,10 @@ position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ovd13")
 
 [node name="Switches" type="TileMapLayer" parent="." unique_id=265615923]
+texture_filter = 1
 position = Vector2(-118.99999, -219)
 scale = Vector2(2.5, 2.5)
-tile_map_data = PackedByteArray("AAABAAQAAAABAAEAAAACAAQAAAABAAEAAAADAAQAAAABAAEAAAAEAAQAAAABAAEAAAAFAAQAAAACAAEAAAAAAAQAAAAAAAEAAAAAAAUAAAAAAAIAAAAAAAYAAAAAAAMAAAAFAAUAAAACAAIAAAAFAAYAAAACAAMAAAABAAYAAAABAAMAAAACAAYAAAABAAMAAAADAAYAAAABAAMAAAAEAAYAAAABAAMAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAA=")
-tile_set = SubResource("TileSet_8p10g")
-
-[node name="SwitchOn1" type="TileMapLayer" parent="Switches" unique_id=379701590]
-visible = false
-scale = Vector2(0.99999994, 0.99999994)
-tile_map_data = PackedByteArray("AAABAAUAAAABAAAAAAA=")
-tile_set = SubResource("TileSet_8p10g")
-
-[node name="SwitchOn2" type="TileMapLayer" parent="Switches" unique_id=1753357083]
-visible = false
-scale = Vector2(0.99999994, 0.99999994)
-tile_map_data = PackedByteArray("AAACAAUAAAABAAAAAAA=")
-tile_set = SubResource("TileSet_8p10g")
-
-[node name="SwitchOn3" type="TileMapLayer" parent="Switches" unique_id=1355827157]
-visible = false
-scale = Vector2(0.99999994, 0.99999994)
-tile_map_data = PackedByteArray("AAADAAUAAAABAAAAAAA=")
-tile_set = SubResource("TileSet_8p10g")
-
-[node name="SwitchOn4" type="TileMapLayer" parent="Switches" unique_id=1653859990]
-visible = false
-scale = Vector2(0.99999994, 0.99999994)
-tile_map_data = PackedByteArray("AAAEAAUAAAABAAAAAAA=")
-tile_set = SubResource("TileSet_8p10g")
-
-[node name="SwitchOff1" type="TileMapLayer" parent="Switches" unique_id=2094854737]
-scale = Vector2(0.99999994, 0.99999994)
-tile_map_data = PackedByteArray("AAABAAUAAAABAAIAAAA=")
-tile_set = SubResource("TileSet_8p10g")
-
-[node name="SwitchOff2" type="TileMapLayer" parent="Switches" unique_id=506542601]
-scale = Vector2(0.99999994, 0.99999994)
-tile_map_data = PackedByteArray("AAACAAUAAAABAAIAAAA=")
-tile_set = SubResource("TileSet_8p10g")
-
-[node name="SwitchOff3" type="TileMapLayer" parent="Switches" unique_id=918263106]
-scale = Vector2(0.99999994, 0.99999994)
-tile_map_data = PackedByteArray("AAADAAUAAAABAAIAAAA=")
-tile_set = SubResource("TileSet_8p10g")
-
-[node name="SwitchOff4" type="TileMapLayer" parent="Switches" unique_id=571901623]
-scale = Vector2(0.99999994, 0.99999994)
-tile_map_data = PackedByteArray("AAAEAAUAAAABAAIAAAA=")
+tile_map_data = PackedByteArray("AAABAAQAAQAAAAAAAAACAAQAAQABAAEAAAADAAQAAQABAAEAAAAEAAQAAQAAAAAAAAAFAAQAAAACAAEAAAAAAAQAAAAAAAEAAAAAAAUAAAAAAAIAAAAAAAYAAAAAAAMAAAAFAAUAAAACAAIAAAAFAAYAAAACAAMAAAABAAYAAQAAAAAAADACAAYAAQABAAMAAAADAAYAAQABAAMAAAAEAAYAAQAAAAAAADA=")
 tile_set = SubResource("TileSet_8p10g")
 
 [node name="CurrentCombiLabel" type="Label" parent="." unique_id=744507776]
