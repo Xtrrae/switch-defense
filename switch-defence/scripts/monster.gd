@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends CharacterBody2D
 
 var destruction_combination = [0, 0, 0, 0];
 var type = ""; # attack_focused | speed_focused

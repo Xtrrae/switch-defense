@@ -1,23 +1,95 @@
 [gd_scene format=3 uid="uid://cne8dqis1kkck"]
 
 [ext_resource type="Script" uid="uid://d0mky5jhq23ko" path="res://scripts/monster.gd" id="1_1cbnp"]
-[ext_resource type="Texture2D" uid="uid://beooyy84mquvw" path="res://assets/monsters/strawberry.png" id="2_c47ug"]
+[ext_resource type="Texture2D" uid="uid://bmtagwrd0utp8" path="res://assets/monsters/Lightbulb_explosion.png" id="2_1cbnp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c5q2p"]
 size = Vector2(185, 185)
 
-[node name="Monster" type="StaticBody2D" unique_id=1551712752]
+[sub_resource type="AtlasTexture" id="AtlasTexture_c47ug"]
+atlas = ExtResource("2_1cbnp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlss8"]
+atlas = ExtResource("2_1cbnp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp4s5"]
+atlas = ExtResource("2_1cbnp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdl1p"]
+atlas = ExtResource("2_1cbnp")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8ewj"]
+atlas = ExtResource("2_1cbnp")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yce20"]
+atlas = ExtResource("2_1cbnp")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fttm7"]
+atlas = ExtResource("2_1cbnp")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akk5r"]
+atlas = ExtResource("2_1cbnp")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2c6u"]
+atlas = ExtResource("2_1cbnp")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ei7v0"]
+atlas = ExtResource("2_1cbnp")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1v1i4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c47ug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlss8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp4s5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdl1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8ewj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yce20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fttm7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akk5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2c6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ei7v0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Monster" type="CharacterBody2D" unique_id=138709900]
 script = ExtResource("1_1cbnp")
 
 [node name="MonsterCollision" type="CollisionShape2D" parent="." unique_id=2043104695]
 position = Vector2(-1, -4)
 shape = SubResource("RectangleShape2D_c5q2p")
-
-[node name="MonsterSprite" type="Sprite2D" parent="." unique_id=1787697316]
-texture_filter = 1
-position = Vector2(-1, -4)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_c47ug")
 
 [node name="DefeatCombinationLabel" type="Label" parent="." unique_id=272376753]
 offset_left = -93.0
@@ -27,3 +99,10 @@ offset_bottom = -97.0
 theme_override_font_sizes/font_size = 30
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1768718148]
+position = Vector2(2, 1)
+scale = Vector2(2.8125, 2.8125)
+sprite_frames = SubResource("SpriteFrames_1v1i4")
+frame = 2
+frame_progress = 0.7096842

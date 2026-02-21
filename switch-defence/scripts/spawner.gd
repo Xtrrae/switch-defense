@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	# spawn monster
-	var monster: StaticBody2D = monster_scene.instantiate()
+	var monster: CharacterBody2D = monster_scene.instantiate()
 	var current_level = $"../Points".level
 	
 	if randi_range(0, 1) == 0:
