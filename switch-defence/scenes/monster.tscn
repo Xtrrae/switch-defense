@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://d0mky5jhq23ko" path="res://scripts/monster.gd" id="1_1cbnp"]
 [ext_resource type="Texture2D" uid="uid://bmtagwrd0utp8" path="res://assets/monsters/Lightbulb_explosion.png" id="2_1cbnp"]
+[ext_resource type="FontFile" uid="uid://jtshwua3f1gx" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="2_c47ug"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c5q2p"]
-size = Vector2(185, 185)
+size = Vector2(63, 87)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c47ug"]
 atlas = ExtResource("2_1cbnp")
@@ -88,14 +89,15 @@ animations = [{
 script = ExtResource("1_1cbnp")
 
 [node name="MonsterCollision" type="CollisionShape2D" parent="." unique_id=2043104695]
-position = Vector2(-1, -4)
+position = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_c5q2p")
 
 [node name="DefeatCombinationLabel" type="Label" parent="." unique_id=272376753]
-offset_left = -93.0
-offset_top = -139.0
-offset_right = 91.0
-offset_bottom = -97.0
+offset_left = -92.0
+offset_top = -87.0
+offset_right = 92.0
+offset_bottom = -45.0
+theme_override_fonts/font = ExtResource("2_c47ug")
 theme_override_font_sizes/font_size = 30
 horizontal_alignment = 1
 vertical_alignment = 1
