@@ -6,6 +6,7 @@
 script = ExtResource("1_jt1lk")
 
 [node name="CurrentCombiLabel" type="Label" parent="." unique_id=744507776]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 39

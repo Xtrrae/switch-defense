@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cne8dqis1kkck"]
+
+[ext_resource type="Script" uid="uid://d0mky5jhq23ko" path="res://scripts/monster.gd" id="1_1cbnp"]
+[ext_resource type="Texture2D" uid="uid://beooyy84mquvw" path="res://assets/monsters/strawberry.png" id="2_c47ug"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c5q2p"]
+size = Vector2(185, 185)
+
+[node name="Monster" type="StaticBody2D" unique_id=1551712752]
+script = ExtResource("1_1cbnp")
+
+[node name="MonsterCollision" type="CollisionShape2D" parent="." unique_id=2043104695]
+position = Vector2(92, 136)
+shape = SubResource("RectangleShape2D_c5q2p")
+
+[node name="MonsterSprite" type="Sprite2D" parent="." unique_id=1787697316]
+texture_filter = 1
+position = Vector2(92, 136)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_c47ug")
+
+[node name="DefeatCombinationLabel" type="Label" parent="." unique_id=272376753]
+offset_right = 184.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1

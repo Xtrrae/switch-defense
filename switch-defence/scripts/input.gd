@@ -14,7 +14,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if not $StartingDelay.is_stopped():
 		return
-
 	
 	if Input.is_action_just_pressed("switch_1"):
 		combi_change_pos(0, true)
