@@ -1,6 +1,6 @@
 extends Node2D
 
-var points = 1000;
+var points = 0;
 var level = 1;
 
 # Called when the node enters the scene tree for the first time.
