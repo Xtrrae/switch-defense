@@ -10,11 +10,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	pass
+
+func add_points(d) -> void:
+	points += d
 	var goalForNextLevel = 1.9 * pow(level + 1, 2) + 12
 	if points >= goalForNextLevel:
 		level += 1;
 		print("leveled up to: ", level, ", points: ", points)
-
-func add_points(d) -> void:
-	points += d
 	$PointsLabel.text = "%.0d" % points
+	$LevelLabel.text = "%d" % level

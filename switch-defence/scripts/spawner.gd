@@ -26,12 +26,12 @@ func _on_timer_timeout() -> void:
 	if randi_range(0, 1) == 0:
 		# speed focused
 		monster.type = "speed_focused"
-		monster.speed = min(.06 * current_level, max_speed)
+		monster.speed = min(.08 * current_level, max_speed)
 		monster.attack = min(current_level, max_attack)
 	else:
 		# attack focused
 		monster.type = "attack_focused"
-		monster.speed = min(.01 * current_level, max_speed)
+		monster.speed = min(.04 * current_level, max_speed)
 		monster.attack = min(4 * current_level, max_attack)
 	
 	
@@ -57,5 +57,8 @@ func _on_input_combination_changed(current_combination: Variant) -> void:
 		if child.name == "Timer":
 			continue
 		if child.destruction_combination == current_combination:
-			print("monster destroyed")
+			# add points (based on the current level)
+			var pts = $"../Points"
+			pts.add_points(pts.level * 3)
+			remove_child(child)
 			child.destroy()

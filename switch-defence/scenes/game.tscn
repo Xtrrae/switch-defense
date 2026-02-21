@@ -7,7 +7,8 @@
 [node name="Node2D" type="Node2D" unique_id=1330494218]
 
 [node name="Input" parent="." unique_id=331839216 instance=ExtResource("1_lnu2h")]
-position = Vector2(464, 527)
+texture_filter = 1
+position = Vector2(576, 324)
 
 [node name="Spawner" type="Node2D" parent="." unique_id=1149451670]
 script = ExtResource("1_uwrxv")

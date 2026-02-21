@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 signal combination_changed(current_combination)
 
