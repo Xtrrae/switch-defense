@@ -5,6 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://nh88wtp2apik" path="res://assets/Light_switch.png" id="3_8p10g"]
 [ext_resource type="FontFile" uid="uid://jtshwua3f1gx" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="3_ovd13"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8p10g"]
+size = Vector2(242, 122)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovd13"]
+size = Vector2(240, 120)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ovd13"]
 texture = ExtResource("2_6gs7a")
 0:0/0 = 0
@@ -54,132 +60,20 @@ texture = ExtResource("3_8p10g")
 sources/0 = SubResource("TileSetAtlasSource_ovd13")
 sources/1 = SubResource("TileSetAtlasSource_2f4ux")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovd13"]
-size = Vector2(252, 131)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8p10g"]
-atlas = ExtResource("3_8p10g")
-region = Rect2(112, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2f4ux"]
-atlas = ExtResource("3_8p10g")
-region = Rect2(112, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_db1xo"]
-atlas = ExtResource("3_8p10g")
-region = Rect2(96, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dnxrp"]
-atlas = ExtResource("3_8p10g")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_202w0"]
-atlas = ExtResource("3_8p10g")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_01jcy"]
-atlas = ExtResource("3_8p10g")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e8l08"]
-atlas = ExtResource("3_8p10g")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_im1m0"]
-atlas = ExtResource("3_8p10g")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_85lhe"]
-atlas = ExtResource("3_8p10g")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d67dx"]
-atlas = ExtResource("3_8p10g")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cox3s"]
-atlas = ExtResource("3_8p10g")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1x111"]
-atlas = ExtResource("3_8p10g")
-region = Rect2(96, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sxn6p"]
-atlas = ExtResource("3_8p10g")
-region = Rect2(112, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m13mw"]
-atlas = ExtResource("3_8p10g")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_5kd1x"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8p10g")
-}],
-"loop": false,
-"name": &"down",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2f4ux")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_db1xo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dnxrp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_202w0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_01jcy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e8l08")
-}],
-"loop": false,
-"name": &"move_down",
-"speed": 24.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_im1m0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_85lhe")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d67dx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cox3s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1x111")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sxn6p")
-}],
-"loop": false,
-"name": &"move_up",
-"speed": 24.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m13mw")
-}],
-"loop": false,
-"name": &"up",
-"speed": 5.0
-}]
-
-[node name="Input" type="Area2D" unique_id=2129371981]
+[node name="Input" type="StaticBody2D" unique_id=714907249]
 script = ExtResource("1_jt1lk")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1496644079]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1328128804]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_8p10g")
+debug_color = Color(0.9653502, 0, 0.4901529, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1617599747]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ovd13")
 
 [node name="Switches" type="TileMapLayer" parent="." unique_id=265615923]
 texture_filter = 1
@@ -198,32 +92,4 @@ theme_override_fonts/font = ExtResource("3_ovd13")
 theme_override_font_sizes/font_size = 29
 text = "0000"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1617599747]
-position = Vector2(1, 0.5)
-shape = SubResource("RectangleShape2D_ovd13")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=688727412]
-
-[node name="switch1" type="AnimatedSprite2D" parent="." unique_id=302614644]
-position = Vector2(-59.000008, 1)
-scale = Vector2(2.5312498, 2.5)
-sprite_frames = SubResource("SpriteFrames_5kd1x")
-animation = &"move_down"
-
-[node name="switch2" type="AnimatedSprite2D" parent="." unique_id=948566362]
-position = Vector2(-19, 0.9999999)
-scale = Vector2(2.5312498, 2.5)
-sprite_frames = SubResource("SpriteFrames_5kd1x")
-animation = &"down"
-
-[node name="switch3" type="AnimatedSprite2D" parent="." unique_id=390620263]
-position = Vector2(20.999992, 0.9999999)
-scale = Vector2(2.5312498, 2.5)
-sprite_frames = SubResource("SpriteFrames_5kd1x")
-animation = &"down"
-
-[node name="switch4" type="AnimatedSprite2D" parent="." unique_id=409918800]
-position = Vector2(60.999996, 0.9999999)
-scale = Vector2(2.5312498, 2.5)
-sprite_frames = SubResource("SpriteFrames_5kd1x")
-animation = &"down"
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

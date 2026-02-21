@@ -4,6 +4,11 @@
 [ext_resource type="Script" uid="uid://qbk2w6ii4lvg" path="res://scripts/spawner.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://ckut456q8gpwj" path="res://scenes/points.tscn" id="2_yqjtg"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_lnu2h"]
+vertices = PackedVector2Array(1722.2188, -674.59375, 1768.7188, 1259.9766, -1049.4375, 994.9375, -940.6094, -841.3906)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-950, -852, 1732, -684, 1779, 1271, -1060, 1004)])
+
 [node name="Node2D" type="Node2D" unique_id=1330494218]
 
 [node name="Input" parent="." unique_id=331839216 instance=ExtResource("1_lnu2h")]
@@ -17,6 +22,9 @@ script = ExtResource("1_uwrxv")
 autostart = true
 
 [node name="Points" parent="." unique_id=2083446943 instance=ExtResource("2_yqjtg")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=140841292]
+navigation_polygon = SubResource("NavigationPolygon_lnu2h")
 
 [connection signal="combination_changed" from="Input" to="Spawner" method="_on_input_combination_changed"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

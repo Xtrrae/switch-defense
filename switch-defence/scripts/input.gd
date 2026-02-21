@@ -1,4 +1,4 @@
-extends Area2D
+extends StaticBody2D
 
 @onready var switches: TileMapLayer = $Switches
 @onready var switch_1: AnimatedSprite2D = $switch1
@@ -83,3 +83,10 @@ func combi_change_pos(index: int, new_state: bool) -> void:
 	$CurrentCombiLabel.text = combi_label_str
 	
 	combination_changed.emit(current_combination)
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("enemy entered")
+	if body.name.contains("Monster"):
+		body.modulate = Color("red")
+		body.rebound()
