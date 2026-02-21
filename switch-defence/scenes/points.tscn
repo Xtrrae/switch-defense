@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bp0ssuy63gsl0" path="res://scenes/points.gd" id="1_qq43p"]
 [ext_resource type="Texture2D" uid="uid://d1nw8ltjynoe4" path="res://assets/lightbulb_sprite_sheet.png" id="2_fug4t"]
+[ext_resource type="FontFile" uid="uid://jtshwua3f1gx" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="2_n1b2v"]
 [ext_resource type="Texture2D" uid="uid://cge6i0f4swbns" path="res://assets/level.png" id="3_7xsqv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7xsqv"]
@@ -12,24 +13,26 @@ region = Rect2(0, 0, 32, 32)
 script = ExtResource("1_qq43p")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1957246676]
-offset_right = 128.0
+offset_right = 149.0
 offset_bottom = 96.0
 
 [node name="LevelLabel" type="Label" parent="." unique_id=999237904]
 offset_left = 47.0
-offset_top = 56.0
+offset_top = 57.0
 offset_right = 180.0
-offset_bottom = 92.0
+offset_bottom = 93.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_n1b2v")
 theme_override_font_sizes/font_size = 26
 text = "1"
 
 [node name="PointsLabel" type="Label" parent="." unique_id=567963247]
 offset_left = 47.0
-offset_top = 1.0
+offset_top = 6.0
 offset_right = 180.0
-offset_bottom = 37.0
+offset_bottom = 42.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_n1b2v")
 theme_override_font_sizes/font_size = 26
 text = "0"
 
