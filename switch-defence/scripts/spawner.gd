@@ -45,6 +45,8 @@ func _on_timer_timeout() -> void:
 		3: # bottom, x: [-100, 1252], y: 748
 			monster.position = Vector2(randi_range(-100, 1252), 748)
 	
+	monster.starting_position = monster.position
+	
 	# set new wait time by level
 	wait_time = max(min_wait_time, wait_time - (current_level / 4))
 	print("new wt: ", wait_time)
