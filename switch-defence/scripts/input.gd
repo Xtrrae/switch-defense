@@ -73,8 +73,6 @@ func _input(event: InputEvent) -> void:
 		animate[3] = false
 		
 func combi_change_pos(index: int, new_state: bool) -> void:
-	
-	
 	var combi_label_str: String = ""
 	current_combination[index] = new_state
 	for state in current_combination:
