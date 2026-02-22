@@ -17,7 +17,7 @@ var in_rebound = false;
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var num_of_combs = 1
-	if randf() > 60.0:
+	if randf() > 0.6:
 		num_of_combs = 2
 	while num_of_combs > 0:
 		var destruction_combination: Array[bool] = [false, false, false, false]
