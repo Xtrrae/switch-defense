@@ -3,33 +3,14 @@
 [ext_resource type="Script" uid="uid://d0mky5jhq23ko" path="res://scripts/monster.gd" id="1_1cbnp"]
 [ext_resource type="Texture2D" uid="uid://bmtagwrd0utp8" path="res://assets/monsters/Lightbulb_explosion.png" id="2_1cbnp"]
 [ext_resource type="FontFile" uid="uid://jtshwua3f1gx" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="2_c47ug"]
+[ext_resource type="Texture2D" uid="uid://bv0quom8lk4fd" path="res://assets/light.png" id="4_jlss8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c5q2p"]
 size = Vector2(63, 87)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c47ug"]
-atlas = ExtResource("2_1cbnp")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jlss8"]
-atlas = ExtResource("2_1cbnp")
-region = Rect2(32, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_gp4s5"]
 atlas = ExtResource("2_1cbnp")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gdl1p"]
-atlas = ExtResource("2_1cbnp")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v8ewj"]
-atlas = ExtResource("2_1cbnp")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yce20"]
-atlas = ExtResource("2_1cbnp")
-region = Rect2(160, 0, 32, 32)
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fttm7"]
 atlas = ExtResource("2_1cbnp")
@@ -51,23 +32,13 @@ region = Rect2(288, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c47ug")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jlss8")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_gp4s5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gdl1p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v8ewj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yce20")
-}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fttm7")
 }, {
@@ -80,9 +51,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ei7v0")
 }],
-"loop": true,
-"name": &"default",
-"speed": 5.0
+"loop": false,
+"name": &"explosion",
+"speed": 20.0
 }]
 
 [node name="Monster" type="CharacterBody2D" unique_id=138709900]
@@ -145,9 +116,21 @@ vertical_alignment = 1
 position = Vector2(2, 1)
 scale = Vector2(2.8125, 2.8125)
 sprite_frames = SubResource("SpriteFrames_1v1i4")
-frame = 2
-frame_progress = 0.7096842
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=782569734]
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1362289210]
+self_modulate = Color(1, 1, 1, 0)
+color = Color(0.44296592, 0.48663116, 0.49290347, 1)
+energy = 0.4
+shadow_enabled = true
+texture = ExtResource("4_jlss8")
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=329147044]
+self_modulate = Color(1, 1, 1, 0)
+color = Color(0.44296592, 0.48663116, 0.49290347, 1)
+energy = 0.4
+shadow_enabled = true
+texture = ExtResource("4_jlss8")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

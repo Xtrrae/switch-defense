@@ -8,8 +8,9 @@
 colors = PackedColorArray(1, 0.5294118, 0.1254902, 1, 0.7137255, 0.29803923, 0.09019608, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_lbhrr"]
-noise_type = 4
-frequency = 0.1114
+noise_type = 5
+frequency = 0.002
+fractal_type = 2
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iywne"]
 noise = SubResource("FastNoiseLite_lbhrr")
@@ -27,7 +28,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-950, -852, 1732, -684,
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2139711286]
 position = Vector2(465.50006, 239.99994)
-scale = Vector2(39.296875, 29.531252)
+scale = Vector2(4.164722, 3.124)
 texture = SubResource("NoiseTexture2D_iywne")
 
 [node name="Input" parent="." unique_id=331839216 instance=ExtResource("1_lnu2h")]
@@ -50,9 +51,10 @@ navigation_polygon = SubResource("NavigationPolygon_lnu2h")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1058513653]
 rotation = 0.6970903
-energy = 0.4
+color = Color(0.096204735, 0.09620475, 0.09620472, 1)
+energy = 0.3
 shadow_enabled = true
-shadow_color = Color(1, 0, 0.10980392, 0.4862745)
+shadow_color = Color(0, 0, 0, 0.4862745)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=911453835]
 

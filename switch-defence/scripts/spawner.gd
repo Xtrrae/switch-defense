@@ -61,5 +61,4 @@ func _on_input_combination_changed(current_combination: Variant) -> void:
 			points.total_destroyed += 1
 			var cleared = child.complete_combination(current_combination)
 			if cleared:
-				remove_child(child)
 				child.destroy()
