@@ -11,6 +11,7 @@ var starting_position = Vector2(0, 0)
 var target
 var in_rebound = false;
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -102,4 +103,9 @@ func rebound() -> void:
 	set_movement_target(position + (starting_position - position) * REBOUND_FRACTION)
 
 func destroy() -> void:
-	pass
+	animated_sprite_2d.play("explosion")
+
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	queue_free()

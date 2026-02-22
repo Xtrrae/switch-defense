@@ -51,7 +51,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ei7v0")
 }],
-"loop": true,
+"loop": false,
 "name": &"explosion",
 "speed": 20.0
 }]
@@ -120,6 +120,17 @@ sprite_frames = SubResource("SpriteFrames_1v1i4")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=782569734]
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1362289210]
-visible = false
-energy = 0.5
+self_modulate = Color(1, 1, 1, 0)
+color = Color(0.44296592, 0.48663116, 0.49290347, 1)
+energy = 0.4
+shadow_enabled = true
 texture = ExtResource("4_jlss8")
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=329147044]
+self_modulate = Color(1, 1, 1, 0)
+color = Color(0.44296592, 0.48663116, 0.49290347, 1)
+energy = 0.4
+shadow_enabled = true
+texture = ExtResource("4_jlss8")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
