@@ -71,13 +71,13 @@ func _process(delta: float) -> void:
 
 var combo_counter: int = 0
 func on_monster_killed() -> void:
+	combo_counter += 1
 	if not $"../ComboTimer".is_stopped():
-		combo_counter += 1
 		$"../ComboBar/ComboLabel".visible = true
-		$"../ComboBar/ComboLabel".text = str(combo_counter) + "x COMBO"
+		$"../ComboBar/ComboLabel".text = str(combo_counter) + "x COMBO!"
 	else:
 		combo_counter = 0
 		$"../ComboBar/ComboLabel".visible = false
-		$"../ComboBar/ComboLabel".text = str(combo_counter) + "x COMBO"
+		$"../ComboBar/ComboLabel".text = str(combo_counter) + "x COMBO!"
 	
 	$"../ComboTimer".start()
