@@ -2,19 +2,17 @@ extends Node
 @onready var points: Node2D = $"../CanvasLayer/Points"
 
 
-var wait_time = 4;
-const min_wait_time = 1
+var wait_time = 2
+const min_wait_time = 0.67
 var timer: Timer
 var monster_scene: Resource
 const max_speed = 0.3;
-const max_attack = 25;
+const max_attack = 30;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer = $Timer
 	monster_scene = load("res://scenes/monster.tscn")
-
-
 
 func _on_timer_timeout() -> void:
 	# spawn monster
