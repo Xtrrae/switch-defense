@@ -2,7 +2,7 @@ extends Node
 @onready var points: Node2D = $"../CanvasLayer/Points"
 
 
-var wait_time = 2
+var wait_time = 1
 const min_wait_time = 0.67
 var timer: Timer
 var monster_scene: Resource
@@ -22,12 +22,12 @@ func _on_timer_timeout() -> void:
 	if randi_range(0, 1) == 0:
 		# speed focused
 		monster.type = "speed_focused"
-		monster.speed = min(.08 * points.level, max_speed)
+		monster.speed = min(.08 * points.level * 2, max_speed)
 		monster.attack = min(points.level * 5, max_attack)
 	else:
 		# attack focused
 		monster.type = "attack_focused"
-		monster.speed = min(.04 * points.level, max_speed)
+		monster.speed = min(.04 * points.level * 2, max_speed)
 		monster.attack = min(points.level * 10, max_attack)
 	
 	
@@ -44,7 +44,7 @@ func _on_timer_timeout() -> void:
 	monster.starting_position = monster.position
 	
 	# set new wait time by level
-	wait_time = max(min_wait_time, wait_time - (points.level / 4))
+	wait_time = max(min_wait_time, wait_time - (points.level / 2))
 	print("new wt: ", wait_time)
 	timer.wait_time = wait_time
 	monster.name = "Monster" + str(randi())
