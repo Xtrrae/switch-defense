@@ -6,8 +6,8 @@ var wait_time = 2.5
 const min_wait_time = 0.67
 var timer: Timer
 var monster_scene: Resource
-const max_speed = 0.3;
-const max_attack = 30;
+const max_speed = 0.4;
+const max_attack = 20;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,7 +18,6 @@ func _ready() -> void:
 func _on_timer_timeout() -> void:
 	# spawn monster
 	var monster: CharacterBody2D = monster_scene.instantiate()
-	
 	
 	if randi_range(0, 1) == 0:
 		# speed focused
