@@ -40,7 +40,6 @@ text = "0"
 offset_right = 40.0
 offset_bottom = 40.0
 texture = SubResource("AtlasTexture_7xsqv")
-metadata/_edit_use_anchors_ = true
 
 [node name="LevelIcon" type="TextureRect" parent="." unique_id=1778051386]
 offset_top = 53.0
