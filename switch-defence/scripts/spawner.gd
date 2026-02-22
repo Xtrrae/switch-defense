@@ -2,19 +2,17 @@ extends Node
 @onready var points: Node2D = $"../CanvasLayer/Points"
 
 
-var wait_time = 4;
-const min_wait_time = 1
+var wait_time = 1
+const min_wait_time = 0.67
 var timer: Timer
 var monster_scene: Resource
 const max_speed = 0.3;
-const max_attack = 25;
+const max_attack = 30;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer = $Timer
 	monster_scene = load("res://scenes/monster.tscn")
-
-
 
 func _on_timer_timeout() -> void:
 	# spawn monster
@@ -24,13 +22,13 @@ func _on_timer_timeout() -> void:
 	if randi_range(0, 1) == 0:
 		# speed focused
 		monster.type = "speed_focused"
-		monster.speed = min(.08 * points.level, max_speed)
-		monster.attack = min(points.level, max_attack)
+		monster.speed = min(.08 * points.level * 2, max_speed)
+		monster.attack = min(points.level * 5, max_attack)
 	else:
 		# attack focused
 		monster.type = "attack_focused"
-		monster.speed = min(.04 * points.level, max_speed)
-		monster.attack = min(4 * points.level, max_attack)
+		monster.speed = min(.04 * points.level * 2, max_speed)
+		monster.attack = min(points.level * 10, max_attack)
 	
 	
 	match randi_range(0, 3):
@@ -46,7 +44,7 @@ func _on_timer_timeout() -> void:
 	monster.starting_position = monster.position
 	
 	# set new wait time by level
-	wait_time = max(min_wait_time, wait_time - (points.level / 4))
+	wait_time = max(min_wait_time, wait_time - (points.level / 2))
 	print("new wt: ", wait_time)
 	timer.wait_time = wait_time
 	monster.name = "Monster" + str(randi())
@@ -60,6 +58,7 @@ func _on_input_combination_changed(current_combination: Variant) -> void:
 		if child.current_destruction_combination == current_combination:
 			# add points (based on the current level)
 			points.add_points(points.level * 3)
+			points.total_destroyed += 1
 			var cleared = child.complete_combination(current_combination)
 			if cleared:
 				child.destroy()

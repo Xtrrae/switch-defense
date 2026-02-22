@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://dk5aaedu2sjq7"]
+
+[ext_resource type="FontFile" uid="uid://jtshwua3f1gx" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="1_mwn6m"]
+[ext_resource type="Script" uid="uid://c7d14xlvsvlv0" path="res://scenes/playAgain.gd" id="2_3d26k"]
+
+[sub_resource type="Gradient" id="Gradient_lnu2h"]
+colors = PackedColorArray(1, 0.5294118, 0.1254902, 1, 0.7137255, 0.29803923, 0.09019608, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lbhrr"]
+noise_type = 5
+frequency = 0.002
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mwn6m"]
+noise = SubResource("FastNoiseLite_lbhrr")
+color_ramp = SubResource("Gradient_lnu2h")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwn6m"]
+bg_color = Color(0.93333334, 0.75686276, 0.4392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3d26k"]
+bg_color = Color(0.93333334, 0.75686276, 0.4392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7m4f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvfni"]
+bg_color = Color(0.93333334, 0.75686276, 0.4392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4tl2"]
+bg_color = Color(0.8, 0.6745098, 0.45490196, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8hmjt"]
+bg_color = Color(0.8, 0.6745098, 0.45490196, 1)
+
+[node name="end" type="Node2D" unique_id=175482137]
+
+[node name="bg" type="Sprite2D" parent="." unique_id=799470748]
+position = Vector2(465.50006, 239.99994)
+scale = Vector2(4.164722, 3.124)
+texture = SubResource("NoiseTexture2D_mwn6m")
+
+[node name="GaveOverLabel" type="Label" parent="." unique_id=685094759]
+offset_left = 334.0
+offset_top = 160.0
+offset_right = 807.0
+offset_bottom = 269.0
+theme_override_fonts/font = ExtResource("1_mwn6m")
+theme_override_font_sizes/font_size = 90
+text = "game over!"
+
+[node name="Button" type="Button" parent="." unique_id=1109543862]
+offset_left = 398.0
+offset_top = 302.0
+offset_right = 761.0
+offset_bottom = 379.0
+theme_override_colors/font_color = Color(0.34509805, 0.31764707, 0.13725491, 1)
+theme_override_colors/font_focus_color = Color(0.34509805, 0.31764707, 0.13725491, 1)
+theme_override_colors/font_pressed_color = Color(0.34509805, 0.31764707, 0.13725491, 1)
+theme_override_colors/font_hover_color = Color(0.34509805, 0.31764707, 0.13725491, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.34509805, 0.31764707, 0.13725491, 1)
+theme_override_colors/font_disabled_color = Color(0.34509805, 0.31764707, 0.13725491, 1)
+theme_override_colors/font_outline_color = Color(0.34509805, 0.31764707, 0.13725491, 1)
+theme_override_fonts/font = ExtResource("1_mwn6m")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_mwn6m")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_3d26k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_p7m4f")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_bvfni")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s4tl2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_8hmjt")
+text = "play again"
+script = ExtResource("2_3d26k")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
