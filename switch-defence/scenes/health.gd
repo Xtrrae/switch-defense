@@ -15,4 +15,4 @@ func change_health(d: float) -> void:
 	health -= d
 	value = health
 	if value <= 0:
-		get_tree().change_scene_to_file("res://scenes/end.tscn")
+		get_tree().call_deferred("change_scene_to_file", "res://scenes/end.tscn")

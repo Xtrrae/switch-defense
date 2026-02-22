@@ -2,7 +2,7 @@ extends Node
 @onready var points: Node2D = $"../CanvasLayer/Points"
 
 
-var wait_time = 1
+var wait_time = 2.5
 const min_wait_time = 0.67
 var timer: Timer
 var monster_scene: Resource
