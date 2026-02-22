@@ -11,6 +11,28 @@ signal combination_changed(current_combination)
 var current_combination: Array[bool] = [false, false, false, false]
 var animate: Array[bool] = [false, false, false, false]
 
+func _ready() -> void:
+	var switch_nodes = [switch_1, switch_2, switch_3, switch_4]
+	for i in range(4):
+		var action := "switch_%d" % (i + 1)
+		var pressed := Input.is_action_pressed(action)
+		current_combination[i] = pressed
+		# Jump to the correct visual state immediately (last frame of the animation)
+		if pressed:
+			switch_nodes[i].play("move_down")
+			switch_nodes[i].frame = switch_nodes[i].sprite_frames.get_frame_count("move_down") - 1
+			switch_nodes[i].stop()
+		else:
+			switch_nodes[i].play("move_up")
+			switch_nodes[i].frame = switch_nodes[i].sprite_frames.get_frame_count("move_up") - 1
+			switch_nodes[i].stop()
+	# Emit so any listeners get the correct initial state
+	var combi_label_str := ""
+	for state in current_combination:
+		combi_label_str += str(int(state))
+	$CurrentCombiLabel.text = combi_label_str
+	combination_changed.emit(current_combination)
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("switch_1"):
 		animate[0] = true
