@@ -38,6 +38,20 @@ bg_color = Color(0.8671586, 0, 0.19845164, 1)
 atlas = ExtResource("4_lbhrr")
 region = Rect2(16, 32, 80, 64)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5sy4"]
+bg_color = Color(0.643454, 0.19378492, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gee14"]
+bg_color = Color(0.9588012, 0.48543525, 1.1551381e-06, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
 [node name="Node2D" type="Node2D" unique_id=1330494218]
 script = ExtResource("1_iywne")
 
@@ -111,5 +125,30 @@ theme_override_font_sizes/font_size = 37
 text = "00:00"
 horizontal_alignment = 1
 
+[node name="ComboTimer" type="Timer" parent="." unique_id=1768611877]
+one_shot = true
+
+[node name="ComboBar" type="ProgressBar" parent="." unique_id=873069773]
+offset_top = 98.0
+offset_right = 149.0
+offset_bottom = 125.0
+theme_override_styles/background = SubResource("StyleBoxFlat_u5sy4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gee14")
+show_percentage = false
+
+[node name="ComboLabel" type="Label" parent="ComboBar" unique_id=913252655]
+visible = false
+layout_mode = 0
+offset_left = 98.0
+offset_top = 17.0
+offset_right = 170.0
+offset_bottom = 46.0
+rotation = -0.38109738
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("5_p57ef")
+theme_override_font_sizes/font_size = 23
+text = "COMBO"
+
 [connection signal="combination_changed" from="Input" to="Spawner" method="_on_input_combination_changed"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="ComboTimer" to="." method="_on_combo_timer_timeout"]

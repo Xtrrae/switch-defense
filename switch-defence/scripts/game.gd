@@ -23,3 +23,7 @@ func stop_timer() -> void:
 
 func start_timer() -> void:
 	game_timer_running = true
+
+
+func _on_combo_timer_timeout() -> void:
+	$ComboBar/ComboLabel.visible = false
