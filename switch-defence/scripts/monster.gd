@@ -5,6 +5,7 @@ var current_destruction_combination: Array[bool] = [false, false, false, false];
 var type = ""; # attack_focused | speed_focused
 var speed = 0;
 var attack = 0;
+var max_combs = 2;
 
 var starting_position = Vector2(0, 0)
 
@@ -14,7 +15,9 @@ var in_rebound = false;
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var num_of_combs = randi_range(1, 4)
+	var num_of_combs = 1
+	if randf() > 60.0:
+		num_of_combs = 2
 	while num_of_combs > 0:
 		var destruction_combination: Array[bool] = [false, false, false, false]
 		for i in range(4):
@@ -55,7 +58,7 @@ func set_movement_target(movement_target: Vector2):
 func complete_combination(comb_to_complete: Array[bool]) -> bool:
 	destruction_combinations.erase(comb_to_complete)
 	
-	var n = 3
+	var n = max_combs + 1
 	while n > 0:
 		get_node("DefeatCombinationLabel" + str(n + 1)).visible = false
 		n -= 1
@@ -76,10 +79,6 @@ func complete_combination(comb_to_complete: Array[bool]) -> bool:
 		current_destruction_combination = destruction_combinations[destruction_combinations.size() - 1]
 		return false
 	
-	
-	
-	
-
 func _physics_process(_delta):
 	var current_agent_position: Vector2 = global_position
 	var next_path_position: Vector2 = navigation_agent.get_next_path_position()
