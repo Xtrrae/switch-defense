@@ -12,6 +12,8 @@ var starting_position = Vector2(0, 0)
 var target
 var in_rebound = false;
 
+signal monster_killed
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 # Called when the node enters the scene tree for the first time.
@@ -115,3 +117,4 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		playing_zap = false
 	else:
 		queue_free()
+		monster_killed.emit()

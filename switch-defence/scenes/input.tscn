@@ -212,6 +212,7 @@ theme_override_colors/font_color = Color(0.28778407, 0.28778407, 0.28778407, 1)
 theme_override_fonts/font = ExtResource("3_ovd13")
 theme_override_font_sizes/font_size = 29
 text = "0000"
+horizontal_alignment = 1
 
 [node name="Switch1" type="AnimatedSprite2D" parent="." unique_id=530033195]
 position = Vector2(-59.000004, 0.99999905)

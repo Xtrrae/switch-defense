@@ -12,6 +12,7 @@ const max_attack = 30;
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer = $Timer
+	$"../ComboBar".max_value = $"../ComboTimer".wait_time
 	monster_scene = load("res://scenes/monster.tscn")
 
 func _on_timer_timeout() -> void:
@@ -48,6 +49,7 @@ func _on_timer_timeout() -> void:
 	print("new wt: ", wait_time)
 	timer.wait_time = wait_time
 	monster.name = "Monster" + str(randi())
+	monster.monster_killed.connect(on_monster_killed)
 	add_child(monster)
 
 
@@ -62,3 +64,20 @@ func _on_input_combination_changed(current_combination: Variant) -> void:
 			var cleared = child.complete_combination(current_combination)
 			if cleared:
 				child.destroy()
+
+
+func _process(delta: float) -> void:
+	$"../ComboBar".value = $"../ComboTimer".time_left
+
+var combo_counter: int = 0
+func on_monster_killed() -> void:
+	if not $"../ComboTimer".is_stopped():
+		combo_counter += 1
+		$"../ComboBar/ComboLabel".visible = true
+		$"../ComboBar/ComboLabel".text = str(combo_counter) + "x COMBO"
+	else:
+		combo_counter = 0
+		$"../ComboBar/ComboLabel".visible = false
+		$"../ComboBar/ComboLabel".text = str(combo_counter) + "x COMBO"
+	
+	$"../ComboTimer".start()
