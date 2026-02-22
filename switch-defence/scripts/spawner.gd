@@ -60,6 +60,7 @@ func _on_input_combination_changed(current_combination: Variant) -> void:
 		if child.current_destruction_combination == current_combination:
 			# add points (based on the current level)
 			points.add_points(points.level * 3)
+			points.total_destroyed += 1
 			var cleared = child.complete_combination(current_combination)
 			if cleared:
 				remove_child(child)

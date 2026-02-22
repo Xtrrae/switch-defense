@@ -2,6 +2,7 @@ extends Node2D
 
 var points = 0;
 var level = 1;
+var total_destroyed = 0; # combinations entered
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,9 +20,11 @@ func _process(delta: float) -> void:
 
 func add_points(d) -> void:
 	points += d
-	var goalForNextLevel = 1.9 * pow(level + 1, 2) + 12
-	if points >= goalForNextLevel:
-		level += 1;
-		print("leveled up to: ", level, ", points: ", points)
+		# (0, 56] -> y=-0.0021x^2+.23521x+1.288
+	# (56, inf) -> y = .033x+7.85
+	if total_destroyed >= 56:
+		level = roundi(-0.0021*pow(total_destroyed,2)+(.23521*total_destroyed)+1.288)
+	else:
+		level = roundi(.033*total_destroyed + 7.85)
 	$PointsLabel.text = "%.0d" % points
 	$LevelLabel.text = "%d" % level
