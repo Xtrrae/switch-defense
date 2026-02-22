@@ -86,6 +86,7 @@ func combi_change_pos(index: int, new_state: bool) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	print("enemy entered")
 	if body.name.contains("Monster"):
-		body.modulate = Color("red")
+		#body.modulate = Color("red")
+		body.animate_zap()
 		body.rebound()
 		$"../CanvasLayer/HealthProgressBar".change_health(body.attack)
