@@ -93,16 +93,53 @@ script = ExtResource("1_1cbnp")
 position = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_c5q2p")
 
-[node name="DefeatCombinationLabel" type="Label" parent="." unique_id=272376753]
+[node name="DefeatCombinationLabel1" type="Label" parent="." unique_id=272376753]
+visible = false
 offset_left = -92.0
 offset_top = -87.0
 offset_right = 92.0
 offset_bottom = -45.0
 theme_override_fonts/font = ExtResource("2_c47ug")
 theme_override_font_sizes/font_size = 30
+text = "1234"
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
+
+[node name="DefeatCombinationLabel2" type="Label" parent="." unique_id=477583196]
+visible = false
+offset_left = -92.0
+offset_top = -119.0
+offset_right = 92.0
+offset_bottom = -77.0
+theme_override_fonts/font = ExtResource("2_c47ug")
+theme_override_font_sizes/font_size = 30
+text = "1234"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DefeatCombinationLabel3" type="Label" parent="." unique_id=189060134]
+visible = false
+offset_left = -92.0
+offset_top = -151.0
+offset_right = 92.0
+offset_bottom = -109.0
+theme_override_fonts/font = ExtResource("2_c47ug")
+theme_override_font_sizes/font_size = 30
+text = "1234"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DefeatCombinationLabel4" type="Label" parent="." unique_id=356406865]
+visible = false
+offset_left = -92.0
+offset_top = -183.0
+offset_right = 92.0
+offset_bottom = -141.0
+theme_override_fonts/font = ExtResource("2_c47ug")
+theme_override_font_sizes/font_size = 30
+text = "1234"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1768718148]
 position = Vector2(2, 1)

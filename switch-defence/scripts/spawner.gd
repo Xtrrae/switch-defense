@@ -15,10 +15,6 @@ func _ready() -> void:
 	monster_scene = load("res://scenes/monster.tscn")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 
 func _on_timer_timeout() -> void:
 	# spawn monster
@@ -61,8 +57,10 @@ func _on_input_combination_changed(current_combination: Variant) -> void:
 	for child in get_children():
 		if child.name == "Timer":
 			continue
-		if child.destruction_combination == current_combination:
+		if child.current_destruction_combination == current_combination:
 			# add points (based on the current level)
 			points.add_points(points.level * 3)
-			remove_child(child)
-			child.destroy()
+			var cleared = child.complete_combination(current_combination)
+			if cleared:
+				remove_child(child)
+				child.destroy()
