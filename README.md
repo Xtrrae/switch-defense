@@ -18,4 +18,4 @@ you're given a light switch to plug into your computer. if you don't have a ligh
 - if a light bulb is able to reach you, you take damage to your health. once your health becomes zero, the game is over.
 
 # demo
-the demo is available [here](https://hahayouthoughtwereallyhadademolink.we'restillsettingitup.giveus-asecond.net).
+the demo is available [here](https://matrndev.itch.io/lights-out).
