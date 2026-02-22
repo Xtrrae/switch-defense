@@ -88,3 +88,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name.contains("Monster"):
 		body.modulate = Color("red")
 		body.rebound()
+		$"../CanvasLayer/HealthProgressBar".change_health(body.attack)

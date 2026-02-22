@@ -23,12 +23,12 @@ func _on_timer_timeout() -> void:
 		# speed focused
 		monster.type = "speed_focused"
 		monster.speed = min(.08 * points.level, max_speed)
-		monster.attack = min(points.level, max_attack)
+		monster.attack = min(points.level * 5, max_attack)
 	else:
 		# attack focused
 		monster.type = "attack_focused"
 		monster.speed = min(.04 * points.level, max_speed)
-		monster.attack = min(4 * points.level, max_attack)
+		monster.attack = min(points.level * 10, max_attack)
 	
 	
 	match randi_range(0, 3):

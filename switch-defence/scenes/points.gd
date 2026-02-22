@@ -22,7 +22,7 @@ func add_points(d) -> void:
 	points += d
 		# (0, 56] -> y=-0.0021x^2+.23521x+1.288
 	# (56, inf) -> y = .033x+7.85
-	if total_destroyed >= 56:
+	if total_destroyed <= 56:
 		level = roundi(-0.0021*pow(total_destroyed,2)+(.23521*total_destroyed)+1.288)
 	else:
 		level = roundi(.033*total_destroyed + 7.85)

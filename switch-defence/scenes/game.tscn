@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://2gcdsvi1m8id" path="res://scenes/input.tscn" id="1_lnu2h"]
 [ext_resource type="Script" uid="uid://qbk2w6ii4lvg" path="res://scripts/spawner.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://ckut456q8gpwj" path="res://scenes/points.tscn" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://tfb6dgm54yt" path="res://scenes/health.gd" id="3_iywne"]
+[ext_resource type="Texture2D" uid="uid://j65ycpfdjk0a" path="res://assets/hearts-spritesheet.png" id="4_lbhrr"]
 
 [sub_resource type="Gradient" id="Gradient_lnu2h"]
 colors = PackedColorArray(1, 0.5294118, 0.1254902, 1, 0.7137255, 0.29803923, 0.09019608, 1)
@@ -23,6 +25,16 @@ polygon = PackedVector2Array(-120, -60, 121, -60, 121, 61, -120, 62)
 vertices = PackedVector2Array(1722.2188, -674.59375, 1768.7188, 1259.9766, -1049.4375, 994.9375, -940.6094, -841.3906)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-950, -852, 1732, -684, 1779, 1271, -1060, 1004)])
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbhrr"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iywne"]
+bg_color = Color(0.8671586, 0, 0.19845164, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iywne"]
+atlas = ExtResource("4_lbhrr")
+region = Rect2(16, 32, 80, 64)
 
 [node name="Node2D" type="Node2D" unique_id=1330494218]
 
@@ -57,6 +69,27 @@ shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.4862745)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=911453835]
+
+[node name="HealthProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=742211854]
+offset_left = 493.0
+offset_top = 244.0
+offset_right = 693.0
+offset_bottom = 258.0
+theme_override_styles/background = SubResource("StyleBoxFlat_lbhrr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_iywne")
+value = 100.0
+show_percentage = false
+script = ExtResource("3_iywne")
+
+[node name="HealthTextureRect" type="TextureRect" parent="CanvasLayer/HealthProgressBar" unique_id=1110391649]
+layout_mode = 0
+offset_left = -36.99997
+offset_top = -6.9999847
+offset_right = 43.000015
+offset_bottom = 57.0
+scale = Vector2(0.4, 0.4)
+texture = SubResource("AtlasTexture_iywne")
+expand_mode = 3
 
 [node name="Points" parent="CanvasLayer" unique_id=2083446943 instance=ExtResource("2_yqjtg")]
 
