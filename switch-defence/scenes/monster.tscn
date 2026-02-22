@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d0mky5jhq23ko" path="res://scripts/monster.gd" id="1_1cbnp"]
 [ext_resource type="Texture2D" uid="uid://bmtagwrd0utp8" path="res://assets/monsters/Lightbulb_explosion.png" id="2_1cbnp"]
 [ext_resource type="FontFile" uid="uid://jtshwua3f1gx" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="2_c47ug"]
+[ext_resource type="Texture2D" uid="uid://c0u44whqs1uit" path="res://assets/Lightbulb_zap.png" id="4_gp4s5"]
 [ext_resource type="Texture2D" uid="uid://bv0quom8lk4fd" path="res://assets/light.png" id="4_jlss8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c5q2p"]
@@ -27,6 +28,50 @@ region = Rect2(256, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ei7v0"]
 atlas = ExtResource("2_1cbnp")
 region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdl1p"]
+atlas = ExtResource("4_gp4s5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8ewj"]
+atlas = ExtResource("4_gp4s5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yce20"]
+atlas = ExtResource("4_gp4s5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1v1i4"]
+atlas = ExtResource("4_gp4s5")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n78d1"]
+atlas = ExtResource("4_gp4s5")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7han3"]
+atlas = ExtResource("4_gp4s5")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70tfl"]
+atlas = ExtResource("4_gp4s5")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0ec1"]
+atlas = ExtResource("4_gp4s5")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4862"]
+atlas = ExtResource("4_gp4s5")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0iwja"]
+atlas = ExtResource("4_gp4s5")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opw4d"]
+atlas = ExtResource("4_gp4s5")
+region = Rect2(320, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1v1i4"]
 animations = [{
@@ -53,6 +98,44 @@ animations = [{
 }],
 "loop": false,
 "name": &"explosion",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdl1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8ewj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yce20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1v1i4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n78d1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7han3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70tfl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0ec1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4862")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0iwja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opw4d")
+}],
+"loop": false,
+"name": &"zap",
 "speed": 20.0
 }]
 

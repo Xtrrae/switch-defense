@@ -104,7 +104,13 @@ func rebound() -> void:
 func destroy() -> void:
 	animated_sprite_2d.play("explosion")
 
-
+var playing_zap: bool = false
+func animate_zap() -> void:
+	playing_zap = true
+	$AnimatedSprite2D.play("zap")
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-	queue_free()
+	if playing_zap:
+		$AnimatedSprite2D.play("default")
+	else:
+		queue_free()

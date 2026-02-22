@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://p5k3gs34bif6"]
 
+[ext_resource type="Script" uid="uid://b3kuwq082ospu" path="res://scripts/game.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://2gcdsvi1m8id" path="res://scenes/input.tscn" id="1_lnu2h"]
 [ext_resource type="Script" uid="uid://qbk2w6ii4lvg" path="res://scripts/spawner.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://ckut456q8gpwj" path="res://scenes/points.tscn" id="2_yqjtg"]
+[ext_resource type="FontFile" uid="uid://jtshwua3f1gx" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="5_p57ef"]
 
 [sub_resource type="Gradient" id="Gradient_lnu2h"]
 colors = PackedColorArray(1, 0.5294118, 0.1254902, 1, 0.7137255, 0.29803923, 0.09019608, 1)
@@ -25,6 +27,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-950, -852, 1732, -684, 1779, 1271, -1060, 1004)])
 
 [node name="Node2D" type="Node2D" unique_id=1330494218]
+script = ExtResource("1_iywne")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2139711286]
 position = Vector2(465.50006, 239.99994)
@@ -59,6 +62,19 @@ shadow_color = Color(0, 0, 0, 0.4862745)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=911453835]
 
 [node name="Points" parent="CanvasLayer" unique_id=2083446943 instance=ExtResource("2_yqjtg")]
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer" unique_id=221973973]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -208.5
+offset_right = 208.5
+offset_bottom = 46.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_p57ef")
+theme_override_font_sizes/font_size = 37
+text = "00:00"
+horizontal_alignment = 1
 
 [connection signal="combination_changed" from="Input" to="Spawner" method="_on_input_combination_changed"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
