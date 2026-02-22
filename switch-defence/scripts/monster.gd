@@ -14,7 +14,7 @@ var in_rebound = false;
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var num_of_combs = randi_range(1, 4)
+	var num_of_combs = randi_range(1, 2)
 	while num_of_combs > 0:
 		var destruction_combination: Array[bool] = [false, false, false, false]
 		for i in range(4):
@@ -55,7 +55,7 @@ func set_movement_target(movement_target: Vector2):
 func complete_combination(comb_to_complete: Array[bool]) -> bool:
 	destruction_combinations.erase(comb_to_complete)
 	
-	var n = 3
+	var n = 1
 	while n > 0:
 		get_node("DefeatCombinationLabel" + str(n + 1)).visible = false
 		n -= 1

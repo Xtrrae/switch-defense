@@ -50,9 +50,10 @@ navigation_polygon = SubResource("NavigationPolygon_lnu2h")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1058513653]
 rotation = 0.6970903
+color = Color(0.3167847, 0.31678474, 0.3167847, 1)
 energy = 0.4
 shadow_enabled = true
-shadow_color = Color(1, 0, 0.10980392, 0.4862745)
+shadow_color = Color(0, 0, 0, 0.4862745)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=911453835]
 
