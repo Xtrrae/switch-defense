@@ -112,5 +112,6 @@ func animate_zap() -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if playing_zap:
 		$AnimatedSprite2D.play("default")
+		playing_zap = false
 	else:
 		queue_free()
